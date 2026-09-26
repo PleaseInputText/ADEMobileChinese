@@ -57,7 +57,7 @@ export default {
 
 <template>
   <div class="l-dimension-text-container">
-    <div :class="adjustableTextClass()">
+    <div :class="[adjustableTextClass(), 'l-dimension-name-box']">
       <span class="c-dim-row__large">
         {{ name }}
       </span>
@@ -65,7 +65,7 @@ export default {
         {{ multiplierText }}
       </span>
     </div>
-    <div :class="adjustableTextClass()">
+    <div :class="[adjustableTextClass(), 'l-dimension-amount-box']">
       <span class="c-dim-row__large">
         {{ amountText }}
       </span>
@@ -113,5 +113,51 @@ export default {
 .c-dim-row__small {
   font-size: 1.2rem;
   margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .l-dimension-text-container {
+    height: auto;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    grid-column: unset;
+  }
+
+  .l-dimension-name-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    max-width: 40% !important;
+    min-width: 6.8rem !important;
+  }
+
+  .l-dimension-amount-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin: 0 4px !important;
+    text-align: center !important;
+  }
+
+  .c-dim-row__large {
+    font-size: 1.2rem !important;
+    margin-right: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .c-dim-row__small {
+    font-size: 1.02rem !important;
+    margin-right: 0 !important;
+    white-space: nowrap !important;
+    opacity: 0.9;
+  }
 }
 </style>

@@ -363,6 +363,7 @@ export function maxAll() {
 
   for (let tier = 1; tier < 9; tier++) {
     buyMaxDimension(tier);
+    buyAsManyAsYouCanBuy(tier);
   }
 
   // Do this here because tickspeed might not have been unlocked before
@@ -802,10 +803,10 @@ export const AntimatterDimensions = {
     // Stop producing antimatter at Big Crunch goal because all the game elements
     // are hidden when pre-break Big Crunch button is on screen.
     const hasBigCrunchGoal = !player.break || Player.isInAntimatterChallenge;
-    let pendAmount = AntimatterDimension(1).productionPerSecond;
-    let amountLost = Decimal.pow(pendAmount, 0.01);
-    let amountGained = amountLost.eq(0) ? DC.D0 : pendAmount.div(amountLost);
-    let conversionToNull = Decimal.log10(amountLost.max(1)).pow(Decimal.log10(Decimal.log10(amountLost.max(1)).max(1)));
+    const pendAmount = AntimatterDimension(1).productionPerSecond;
+    const amountLost = Decimal.pow(pendAmount, 0.01);
+    const amountGained = amountLost.eq(0) ? DC.D0 : pendAmount.div(amountLost);
+    const conversionToNull = Decimal.log10(amountLost.max(1)).pow(Decimal.log10(Decimal.log10(amountLost.max(1)).max(1)));
     if (LHC.voidRunning) {
       Currency.nullMatter.add(conversionToNull.times(diff).div(1000));
     }

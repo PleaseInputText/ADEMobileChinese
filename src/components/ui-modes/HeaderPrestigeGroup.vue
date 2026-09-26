@@ -131,4 +131,41 @@ export default {
   right: calc(25% - 22rem);
   width: 22rem;
 }
+
+@media (max-width: 768px) {
+  .c-prevent-overflow {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 2px 4px;
+  }
+
+  .c-prestige-info-blocks,
+  .c-prestige-info-blocks--tall,
+  .c-prestige-info-blocks--taller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    gap: 2px;
+  }
+
+  .l-game-header__eternity,
+  .l-game-header__center,
+  .l-game-header__infinity {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    margin: 1px 0;
+  }
+
+  .l-game-header__center {
+    order: -1;
+  }
+}
 </style>

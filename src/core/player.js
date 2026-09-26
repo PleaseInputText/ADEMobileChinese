@@ -1534,7 +1534,7 @@ window.player = {
       speed: 1,
       includeAnimated: true,
     },
-    notation: "Mixed scientific",
+    notation: "Scientific",
     lnotation: "Stacked Scientific",
     notationDigits: {
       comma: 5,

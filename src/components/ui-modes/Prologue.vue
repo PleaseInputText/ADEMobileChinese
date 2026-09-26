@@ -43,8 +43,8 @@ export default {
     class="l-prologue-container"
   >
     <div
-      class="l-intro-options"
       v-if="introFrozen && introTick === 0"
+      class="l-intro-options"
     >
       <div class="l-intro-options-spacing">
         <span class="l-intro-options-text">你是刚来到存在之境的新人吗？</span>
@@ -73,15 +73,24 @@ export default {
     >
       <span class="l-intro-text">2113 年 5 月 2 日</span>
       <br>
-      <span class="l-intro-text" :style="{ opacity: opac1 }">坐标：ANTI-709B</span>
+      <span
+        class="l-intro-text"
+        :style="{ opacity: opac1 }"
+      >坐标：ANTI-709B</span>
     </div>
     <div
       v-if="!introFrozen && introTick > 20000 && introTick < 30000"
       class="l-prologue-text--alternate"
     >
       <span class="l-intro-text--alternate">五</span>
-      <span class="l-intro-text--alternate" :style="{ opacity: opac2 }">年</span>
-      <span class="l-intro-text--alternate" :style="{ opacity: opac3 }">后</span>
+      <span
+        class="l-intro-text--alternate"
+        :style="{ opacity: opac2 }"
+      >年</span>
+      <span
+        class="l-intro-text--alternate"
+        :style="{ opacity: opac3 }"
+      >后</span>
     </div>
     <div
       v-if="!introFrozen && introTick > 50000 && introTick < 60000"
@@ -90,7 +99,10 @@ export default {
       <div>
         <span class="l-logo-color-one">反</span><span class="l-logo-color-two">物质</span><span class="l-intro-text">维度</span>
         <br>
-        <span class="l-logo-color-three" :style="{ opacity: opac4 }">终局</span>
+        <span
+          class="l-logo-color-three"
+          :style="{ opacity: opac4 }"
+        >终局</span>
       </div>
     </div>
   </div>
@@ -168,5 +180,40 @@ export default {
   font-size: 10rem;
   color: var(--color-endgame);
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .l-intro-options {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+  }
+
+  .l-intro-options-spacing {
+    margin: 1.5rem 0 !important;
+    text-align: center !important;
+  }
+
+  .l-intro-options-text {
+    font-size: 1.5rem !important;
+  }
+
+  .l-intro-text,
+  .l-intro-text--alternate,
+  .l-logo-color-one,
+  .l-logo-color-two,
+  .l-logo-color-three {
+    font-size: 3.6rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .l-prologue-text--alternate {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
 }
 </style>

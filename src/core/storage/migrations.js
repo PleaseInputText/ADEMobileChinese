@@ -421,7 +421,7 @@ export const migrations = {
       // This update has a rebalance that assumes the 3rd dilation repeatable is unpurchasable in cel7
       if (player.celestials.pelle.doomed) player.dilation.rebuyables[3] = 0;
     },
-    //Start with 100 since Endgame is a "new era"
+    // Start with 100 since Endgame is a "new era"
     100: player => {
       endgameMigration(player);
     },
@@ -675,7 +675,7 @@ export const migrations = {
   migrateNotation(player) {
     const notation = player.options.notation;
     if (notation === undefined) {
-      player.options.notation = "Standard";
+      player.options.notation = "Scientific";
     }
     const notationMigration = {
       "Mixed": "Mixed scientific",

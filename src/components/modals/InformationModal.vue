@@ -124,4 +124,30 @@ export default {
   width: 100%;
   align-self: center;
 }
+
+@media (max-width: 768px) {
+  .l-information-modal {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-info-body {
+    font-size: 1.25rem !important;
+    line-height: 1.45 !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.2rem !important;
+  }
+
+  .l-socials {
+    flex-wrap: wrap !important;
+    gap: 0.8rem !important;
+    justify-content: center !important;
+    font-size: 3rem !important;
+    margin-top: 1rem !important;
+  }
+}
 </style>

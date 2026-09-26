@@ -5,6 +5,7 @@ export default {
     return {
       hasTutorial: false,
       isModern: false,
+      hasClickedH2P: false,
     };
   },
   computed: {
@@ -21,10 +22,12 @@ export default {
   },
   methods: {
     update() {
-      this.hasTutorial = Tutorial.emphasizeH2P();
+      this.hasTutorial = !this.hasClickedH2P && Tutorial.emphasizeH2P();
       this.isModern = player.options.newUI;
     },
     showH2P() {
+      this.hasClickedH2P = true;
+      this.hasTutorial = false;
       Modal.h2p.show();
     },
     showInfo() {
@@ -112,5 +115,11 @@ export default {
   border-top: 0.5rem solid transparent;
   border-left: 0.5rem solid var(--color-text);
   border-bottom: 0.5rem solid transparent;
+}
+
+@media (max-width: 768px) {
+  .h2p-tooltip {
+    display: none !important;
+  }
 }
 </style>

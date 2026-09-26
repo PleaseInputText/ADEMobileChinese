@@ -31,6 +31,8 @@ export default {
       nullified: false,
       hasReality: false,
       newGameKey: "",
+      isMobile: false,
+      mobileQuery: null,
     };
   },
   computed: {
@@ -38,8 +40,17 @@ export default {
       return this.$viewModel.news;
     },
     topMargin() {
+      if (this.isMobile) return "";
       return this.$viewModel.news ? "" : "margin-top: 3.9rem";
     }
+  },
+  mounted() {
+    this.mobileQuery = window.matchMedia("(max-width: 700px)");
+    this.isMobile = this.mobileQuery.matches;
+    this.mobileQuery.addListener(this.onMobileChange);
+  },
+  beforeDestroy() {
+    if (this.mobileQuery) this.mobileQuery.removeListener(this.onMobileChange);
   },
   methods: {
     update() {
@@ -58,6 +69,12 @@ export default {
     handleClick() {
       if (PlayerProgress.infinityUnlocked()) manualBigCrunchResetRequest();
       else Modal.bigCrunch.show();
+    },
+    onMobileChange() {
+      const isMobile = this.mobileQuery.matches;
+      if (isMobile !== this.isMobile) {
+        this.isMobile = isMobile;
+      }
     }
   },
 };
@@ -70,8 +87,14 @@ export default {
       type="text/css"
       href="stylesheets/new-ui-styles.css"
     >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="stylesheets/mobile.css"
+    >
     <div
       :key="newGameKey"
+      ref="gameContainer"
       class="game-container"
       :style="topMargin"
     >

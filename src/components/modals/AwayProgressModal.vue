@@ -85,4 +85,29 @@ export default {
 .c-modal-away-progress__resources div:last-child {
   border: none;
 }
+
+@media (max-width: 768px) {
+  .c-modal-away-progress {
+    width: 92vw !important;
+    max-width: 92vw !important;
+  }
+
+  .c-modal-away-progress__resources {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 50vh !important;
+  }
+
+  .c-modal-away-progress__resources div {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    font-size: 1.2rem !important;
+    line-height: 1.35 !important;
+    margin: 0 auto 0.3rem auto !important;
+    padding: 0.4rem 0.2rem !important;
+  }
+}
 </style>

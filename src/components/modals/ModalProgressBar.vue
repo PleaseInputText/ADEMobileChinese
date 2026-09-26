@@ -126,4 +126,26 @@ export default {
 .modal-progress-bar__margin {
   margin: 1rem 0;
 }
+
+@media (max-width: 768px) {
+  .modal-progress-bar {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    padding: 0 4px !important;
+    text-align: center !important;
+  }
+
+  .modal-progress-bar__bg {
+    width: 76vw !important;
+    max-width: 24rem !important;
+    margin: 0 auto !important;
+  }
+
+  .modal-progress-bar__buttons {
+    width: 100% !important;
+    max-width: 24rem !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+}
 </style>

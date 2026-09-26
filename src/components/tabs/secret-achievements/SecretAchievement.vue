@@ -29,6 +29,8 @@ export default {
     styleObject() {
       if (!this.isUnlocked) return undefined;
       return {
+        "--ach-col": this.achievement.column - 1,
+        "--ach-row": this.achievement.row - 1,
         "background-position": `-${(this.achievement.column - 1) * 104}px -${(this.achievement.row - 1) * 104}px`
       };
     },

@@ -34,9 +34,14 @@ export default {
       isContinuumActive: false,
       multiplierText: "",
       isFullyAutomated: false,
+      isMobile: false,
+      holdInterval: null,
     };
   },
   computed: {
+    maxAllDisplay() {
+      return this.isMobile ? "购买最大数量" : "购买最大数量（M）";
+    },
     sacrificeTooltip() {
       if (this.isFullyAutomated) {
         return "自动献祭已开启且拥有成就 118，因此献祭将完全自动化";
@@ -116,7 +121,28 @@ export default {
           : ` | 献祭倍率: ${formatX(this.currentSacrifice, 2, 2)}`)
         : "";
       this.multiplierText += sacText;
+    },
+    startHoldMax() {
+      this.maxAll();
+      clearInterval(this.holdInterval);
+      this.holdInterval = setInterval(() => {
+        this.maxAll();
+      }, 75);
+    },
+    stopHoldMax() {
+      clearInterval(this.holdInterval);
     }
+  },
+  mounted() {
+    this.updateIsMobile = () => {
+      this.isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    };
+    this.updateIsMobile();
+    window.addEventListener("resize", this.updateIsMobile);
+  },
+  beforeDestroy() {
+    clearInterval(this.holdInterval);
+    if (this.updateIsMobile) window.removeEventListener("resize", this.updateIsMobile);
   }
 };
 </script>
@@ -146,8 +172,14 @@ export default {
       <button
         class="o-primary-btn l-button-container"
         @click="maxAll"
+        @mousedown="startHoldMax"
+        @mouseup="stopHoldMax"
+        @mouseleave="stopHoldMax"
+        @touchstart.passive="startHoldMax"
+        @touchend.passive="stopHoldMax"
+        @touchcancel.passive="stopHoldMax"
       >
-        购买最大数量（M）
+        {{ maxAllDisplay }}
       </button>
     </div>
     <span>{{ multiplierText }}</span>
@@ -181,5 +213,14 @@ export default {
   width: 100px;
   height: 30px;
   padding: 0;
+}
+
+@media (max-width: 768px) {
+  .l-button-container {
+    width: auto;
+    min-width: 8.5rem;
+    height: 3.8rem;
+    padding: 0.3rem 0.5rem;
+  }
 }
 </style>

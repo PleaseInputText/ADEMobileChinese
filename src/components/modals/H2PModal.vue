@@ -39,7 +39,9 @@ export default {
     if (Tutorial.emphasizeH2P()) this.activeTab = GameDatabase.h2p.tabs[0];
   },
   mounted() {
-    this.$refs.input.select();
+    if (typeof window !== "undefined" && window.innerWidth > 768) {
+      this.$refs.input.select();
+    }
   },
   methods: {
     setActiveTab(tab) {

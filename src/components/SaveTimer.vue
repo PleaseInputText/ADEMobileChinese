@@ -73,4 +73,10 @@ export default {
 .t-s3 .o-save-timer {
   animation: a-glasses 7s infinite;
 }
+
+@media (max-width: 768px) {
+  .o-save-timer {
+    display: none !important;
+  }
+}
 </style>

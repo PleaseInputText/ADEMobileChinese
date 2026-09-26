@@ -72,3 +72,19 @@ export default {
     </template>
   </ModalWrapperChoice>
 </template>
+
+<style scoped>
+@media (max-width: 768px) {
+  .c-modal-username__input {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-modal-message__text {
+    max-width: 100% !important;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+</style>
