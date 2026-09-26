@@ -578,3 +578,34 @@ dev.restartIntro = function() {
   player.introFrozen = true;
   player.expanse.elemental.quotes = player.expanse.elemental.quotes.filter(q => q >= 3);
 };
+
+dev.unlockAllTabs = function(unlock = true) {
+  if (typeof Tabs !== "undefined" && Tabs.all) {
+    Tabs.all.forEach(tab => {
+      if (unlock) {
+        if (!tab._originalCondition) tab._originalCondition = tab.config.condition;
+        tab.config.condition = () => true;
+      } else if (tab._originalCondition) {
+        tab.config.condition = tab._originalCondition;
+      }
+      tab.subtabs.forEach(subtab => {
+        if (unlock) {
+          if (!subtab._originalCondition) subtab._originalCondition = subtab.config.condition;
+          subtab.config.condition = () => true;
+        } else if (subtab._originalCondition) {
+          subtab.config.condition = subtab._originalCondition;
+        }
+      });
+    });
+  }
+  if (unlock && typeof player !== "undefined" && player.options) {
+    player.options.hiddenTabBits = 0;
+    if (Array.isArray(player.options.hiddenSubtabBits)) {
+      player.options.hiddenSubtabBits = player.options.hiddenSubtabBits.map(() => 0);
+    }
+  }
+};
+
+if (typeof window !== "undefined") {
+  window.unlockAllTabs = dev.unlockAllTabs;
+}

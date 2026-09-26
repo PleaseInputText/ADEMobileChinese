@@ -24,4 +24,14 @@ if (typeof window !== "undefined") {
       }, 50);
     }
   }, { passive: true });
+
+  if (window.location.search.includes("unlockTabs")) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        if (typeof window.unlockAllTabs === "function") {
+          window.unlockAllTabs();
+        }
+      }, 500);
+    });
+  }
 }
