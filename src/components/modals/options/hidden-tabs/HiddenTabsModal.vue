@@ -75,9 +75,23 @@ export default {
 <style scoped>
 .l-wrapper {
   width: 62rem;
+  max-width: 94vw;
 }
 
 .t-s12 .l-wrapper {
   width: 65rem;
+  max-width: 94vw;
+}
+
+@media (max-width: 768px) {
+  .l-wrapper {
+    width: 94vw !important;
+    max-width: 94vw !important;
+  }
+
+  .t-s12 .l-wrapper {
+    width: 94vw !important;
+    max-width: 94vw !important;
+  }
 }
 </style>

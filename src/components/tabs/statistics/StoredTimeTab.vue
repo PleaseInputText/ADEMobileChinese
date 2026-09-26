@@ -296,7 +296,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="l-stored-time-tab">
     <div class="normal-text">
       <br>
       <span>你可以跳跃 </span><span class="special-text">{{ timeDisplay }}</span><span> 的时间。</span>
@@ -304,7 +304,7 @@ export default {
       <span>建议善用赠送的离线时长！或许在特定的情况下可以大大加快永恒！</span>
     </div>
 
-    <div class="c-subtab-option-container">
+    <div class="c-subtab-option-container c-stored-time-skip-btns">
       <div class="independent-btn-wrapper">
         <PrimaryButton
           class="o-primary-btn"
@@ -418,7 +418,7 @@ export default {
       <br>
       <br>
 
-      <div class="c-subtab-option-container">
+      <div class="c-subtab-option-container c-stored-time-level-btns">
         <PrimaryButton
           :class="classObj6"
           @click="minimizeFlux"
@@ -475,7 +475,7 @@ export default {
       <br>
       <br>
 
-      <div class="c-subtab-option-container">
+      <div class="c-subtab-option-container c-stored-time-flux-btns">
         <PrimaryButton
           :class="classObj1"
           @click="fluxOneMin"

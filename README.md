@@ -1,7 +1,9 @@
-# Antimatter Dimensions: Endgame Update 汉化手机适配
+# Antimatter Dimensions: Endgame Update 手机汉化版
 
 > 非官方汉化 + 移动端 UI 适配  
 > 仅供学习交流使用，请支持原作者。
+
+游玩地址：https://pleaseinputtext.github.io/ADEMobileChinese/
 
 ## 项目简介
 
@@ -21,4 +23,4 @@
 
 ## UI适配
 
-- 适配大部分UI
+- 适配部分UI

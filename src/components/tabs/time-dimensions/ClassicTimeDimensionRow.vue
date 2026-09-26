@@ -175,14 +175,6 @@ export default {
         class="o-primary-btn--buy-td-auto"
         label="自动："
       />
-      <PrimaryButton
-        v-else
-        :enabled="isAvailableForPurchase && !isCapped"
-        :class="maxButtonClass()"
-        @click="buyMaxTimeDimension"
-      >
-        购买最大数量
-      </PrimaryButton>
     </div>
   </div>
 </template>

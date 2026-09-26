@@ -15,16 +15,32 @@ export default {
       clickedGlyphId: null,
       glyphSacrificeUnlocked: false,
       protectedRows: 0,
+      isMobile: false,
     };
   },
   computed: {
     rowCount: () => Glyphs.totalSlots / 10,
     colCount: () => 10,
+    slotSize() {
+      return this.isMobile ? "3.4rem" : "5rem";
+    }
   },
   created() {
     this.on$(GAME_EVENT.GLYPHS_CHANGED, this.glyphsChanged);
     this.on$(GAME_EVENT.GLYPH_VISUAL_CHANGE, this.glyphsChanged);
     this.glyphsChanged();
+    this.isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+  },
+  mounted() {
+    this.resizeHandler = () => {
+      this.isMobile = window.innerWidth <= 768;
+    };
+    window.addEventListener("resize", this.resizeHandler);
+  },
+  beforeDestroy() {
+    if (this.resizeHandler) {
+      window.removeEventListener("resize", this.resizeHandler);
+    }
   },
   methods: {
     update() {
@@ -110,6 +126,7 @@ export default {
           :is-inventory-glyph="true"
           :show-sacrifice="glyphSacrificeUnlocked"
           :draggable="true"
+          :size="slotSize"
           @shiftClicked="removeGlyph($event, false)"
           @ctrlShiftClicked="removeGlyph($event, true)"
           @clicked="clickGlyph(col, $event)"

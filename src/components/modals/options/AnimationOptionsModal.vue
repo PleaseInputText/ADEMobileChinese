@@ -125,11 +125,11 @@ export default {
 </script>
 
 <template>
-  <ModalWrapperOptions class="c-modal-options__large">
+  <ModalWrapperOptions class="c-modal-options__large c-animation-options-modal">
     <template #header>
       动画选项
     </template>
-    <div class="c-modal-options__button-container">
+    <div class="c-modal-options__button-container c-animation-options-container">
       <ModalOptionsToggleButton
         v-if="infinityUnlocked"
         v-model="bigCrunch"
@@ -210,5 +210,47 @@ export default {
 <style scoped>
 .c-blobflake-slider {
   padding: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .c-animation-options-modal {
+    width: 92vw !important;
+    max-width: 92vw !important;
+  }
+
+  .c-animation-options-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+    gap: 6px !important;
+  }
+
+  .c-animation-options-container > * {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .c-animation-options-container /deep/ .o-primary-btn--modal-option {
+    width: 94% !important;
+    max-width: 28rem !important;
+    min-height: 3.6rem !important;
+    height: auto !important;
+    margin: 3px auto !important;
+    font-size: 1.15rem !important;
+    padding: 6px 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-animation-options-container .c-blobflake-slider {
+    width: 94% !important;
+    max-width: 28rem !important;
+    min-height: 4.5rem !important;
+    margin: 3px auto !important;
+    box-sizing: border-box !important;
+  }
 }
 </style>

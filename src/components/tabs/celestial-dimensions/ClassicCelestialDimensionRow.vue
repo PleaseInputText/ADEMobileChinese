@@ -138,14 +138,6 @@ export default {
         class="o-primary-btn--cd-auto"
         label="自动："
       />
-      <PrimaryButton
-        v-else
-        :enabled="isAvailableForPurchase && isUnlocked"
-        class="o-primary-btn--cd-auto"
-        @click="buyMaxCelestialDimension"
-      >
-        购买最大
-      </PrimaryButton>
     </div>
   </div>
 </template>

@@ -149,7 +149,7 @@ export default {
     height: auto;
     width: 100%;
     margin: 0;
-    gap: 2px;
+    gap: 0;
   }
 
   .l-game-header__eternity,
@@ -161,11 +161,7 @@ export default {
     top: auto;
     bottom: auto;
     width: 100%;
-    margin: 1px 0;
-  }
-
-  .l-game-header__center {
-    order: -1;
+    margin: 0;
   }
 }
 </style>

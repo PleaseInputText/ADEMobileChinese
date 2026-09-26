@@ -165,7 +165,10 @@ export default {
 
         <RealityReminder />
 
-        <div v-if="showInstability">
+        <div
+          v-if="showInstability"
+          class="l-glyph-instability"
+        >
           <br>
           符文变得不稳定。
           <br>
@@ -173,7 +176,6 @@ export default {
           达到高于 {{ formatInt(instabilityThreshold) }} 级的更加困难。
           <br>
           在超过 {{ formatInt(hyperInstabilityThreshold) }} 级时，这种效果更为显著。
-          <br>
           <div v-if="showHigherInstability">
             高于 {{ formatInt(extremeInstabilityThreshold) }} 级时, 更高符文等级几乎无法企及。
           </div>
@@ -187,7 +189,7 @@ export default {
             一旦触及 {{ formatInt(prodigiousInstabilityThreshold) }} 级，增长便几乎宣告终结。
           </div>
         </div>
-        <SingleGlyphCustomzationPanel />
+        <SingleGlyphCustomzationPanel class="l-single-glyph-customization" />
         <ExpandingControlBox
           width-source="content"
           label="符文等级因子"

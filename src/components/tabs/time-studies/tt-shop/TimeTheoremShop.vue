@@ -135,6 +135,9 @@ export default {
     },
     toggleTTgen() {
       this.invertTTgenDisplay = !this.invertTTgenDisplay;
+    },
+    showPreferredTreeModal() {
+      Modal.preferredTree.show();
     }
   },
 };
@@ -143,60 +146,65 @@ export default {
 <template>
   <div class="time-theorem-buttons">
     <div class="ttshop-container ttshop-background">
-      <div
-        data-role="page"
-        class="ttbuttons-row ttbuttons-top-row"
-      >
-        <button
-          class="l-tt-save-load-btn c-tt-buy-button c-tt-buy-button--unlocked"
-          onClick="Modal.preferredTree.show()"
-        >
-          <i class="fas fa-cog" />
-        </button>
-        <p class="timetheorems">
+      <!-- 1. TT Amount header on TOP -->
+      <div class="ttshop-header">
+        <div class="timetheorems">
+          你拥有
           <span class="c-tt-amount">
             {{ quantify("时间之理", theoremAmount, 2, 0, formatTimeTheoremType) }}
           </span>
           <span v-if="showST">
-            <br>
+            &nbsp;|&nbsp;
             {{ quantifyInt("空间之理", STamount) }}
           </span>
-        </p>
-        <div class="l-load-tree-area">
-          <div class="l-tree-load-button-wrapper">
-            <span class="c-ttshop__save-load-text">{{ saveLoadText }}</span>
-            <TimeStudySaveLoadButton
-              v-for="saveslot in 6"
-              :key="saveslot"
-              :saveslot="saveslot"
-            />
-          </div>
-          <div class="tt-gen-container">
-            <span
-              v-if="hasTTGen"
-              class="checkbox-margin"
-              ach-tooltip="默认显示时间之理生成量，按住Shift键则显示总时间之理。勾选此框可交换此行为。"
+        </div>
+        <div
+          v-if="hasTTGen"
+          class="tt-gen-container"
+        >
+          <span
+            class="checkbox-margin"
+            ach-tooltip="默认显示时间之理生成量，按住Shift键则显示总时间之理。勾选此框可交换此行为。"
+          >
+            <input
+              v-model="invertTTgenDisplay"
+              type="checkbox"
+              :value="invertTTgenDisplay"
+              class="o-clickable"
+              @input="toggleTTgen()"
             >
-              <input
-                v-model="invertTTgenDisplay"
-                type="checkbox"
-                :value="invertTTgenDisplay"
-                class="o-clickable"
-                @input="toggleTTgen()"
-              >
-            </span>
-            <span v-if="showTTGen">
-              {{ TTgenRateText }}
-            </span>
-            <span v-else>
-              {{ totalTimeTheoremText }}
-            </span>
-          </div>
+          </span>
+          <span v-if="showTTGen">
+            {{ TTgenRateText }}
+          </span>
+          <span v-else>
+            {{ totalTimeTheoremText }}
+          </span>
         </div>
       </div>
+
+      <!-- 2. Controls Row: Preferred Tree Regular Button + Load Presets 1-6 -->
+      <div class="ttshop-preset-row">
+        <button
+          class="l-tt-pref-btn c-tt-buy-button c-tt-buy-button--unlocked"
+          @click="showPreferredTreeModal"
+        >
+          <i class="fas fa-cog" /> 路径偏好
+        </button>
+        <div class="l-tree-load-button-wrapper">
+          <span class="c-ttshop__save-load-text">加载预设：</span>
+          <TimeStudySaveLoadButton
+            v-for="saveslot in 6"
+            :key="saveslot"
+            :saveslot="saveslot"
+          />
+        </div>
+      </div>
+
+      <!-- 3. Purchase Buttons -->
       <div
         v-if="!minimized"
-        class="ttbuttons-row"
+        class="ttbuttons-row ttbuttons-buy-row"
         :style="shopBottomRowHeightStyle"
       >
         <TimeTheoremBuyButton
@@ -219,14 +227,13 @@ export default {
         />
         <div class="l-tt-buy-max-vbox">
           <button
-            v-if="!minimized"
             class="o-tt-top-row-button c-tt-buy-button c-tt-buy-button--unlocked"
             @click="buyMaxTheorems"
           >
             购买最大数量
           </button>
           <PrimaryToggleButton
-            v-if="!minimized && hasTTAutobuyer"
+            v-if="hasTTAutobuyer"
             v-model="isAutobuyerOn"
             class="o-tt-autobuyer-button c-tt-buy-button c-tt-buy-button--unlocked"
             label="自动："
@@ -252,18 +259,87 @@ export default {
 </template>
 
 <style scoped>
-.l-load-tree-area {
+.time-theorem-buttons {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  align-items: left;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0.5rem auto;
+  pointer-events: auto;
+}
+
+.ttshop-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--var-border-radius, 6px);
+  border: var(--var-border-width, 0.2rem) solid black;
+  gap: 0.5rem;
+}
+
+.ttshop-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.2rem;
+}
+
+.timetheorems {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.c-tt-amount {
+  color: #3aacd6;
+}
+
+.ttshop-preset-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.l-tt-pref-btn {
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem;
+  min-height: 2.8rem;
 }
 
 .l-tree-load-button-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.c-ttshop__save-load-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.ttbuttons-buy-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  width: 100%;
 }
 
 .ttbuttons-bottom-row-hide {
@@ -273,8 +349,9 @@ export default {
 .tt-gen-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  font-size: 1.1rem;
 }
 
 .checkbox-margin {

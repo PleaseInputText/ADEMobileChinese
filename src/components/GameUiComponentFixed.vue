@@ -14,13 +14,11 @@ import SaveTimer from "@/components/SaveTimer";
 import ScreenOverlay from "@/components/ui-modes/ScreenOverlay";
 import SpectateGame from "@/components/SpectateGame";
 import SpeedrunStatus from "@/components/SpeedrunStatus";
-import TimeTheoremShop from "@/components/tabs/time-studies/tt-shop/TimeTheoremShop";
 
 export default {
   name: "GameUiComponentFixed",
   components: {
     HowToPlay,
-    TimeTheoremShop,
     EndgameSkillShop,
     ModernSidebar,
     SaveTimer,
@@ -75,10 +73,6 @@ export default {
       class="l-notification-container"
     />
     <HowToPlay :style="hideIfMatoFullscreen" />
-    <TimeTheoremShop
-      v-if="view.subtab === 'studies'"
-      class="l-time-studies-tab__tt-shop"
-    />
     <EndgameSkillShop
       v-if="view.subtab === 'masteries'"
       class="l-endgame-masteries-tab__es-shop"

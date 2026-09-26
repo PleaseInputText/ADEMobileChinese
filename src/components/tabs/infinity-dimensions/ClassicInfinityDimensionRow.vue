@@ -171,14 +171,6 @@ export default {
         class="o-primary-btn--id-auto"
         label="自动："
       />
-      <PrimaryButton
-        v-else
-        :enabled="isAvailableForPurchase && isUnlocked"
-        :class="maxButtonClass()"
-        @click="buyMaxInfinityDimension"
-      >
-        购买最大数量
-      </PrimaryButton>
     </div>
   </div>
 </template>

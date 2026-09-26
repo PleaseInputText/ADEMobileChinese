@@ -87,7 +87,7 @@
     padding-left: 2px !important;
     padding-right: 2px !important;
     padding-top: 2px !important;
-    padding-bottom: 8.5rem !important;
+    padding-bottom: calc(10rem + env(safe-area-inset-bottom, 20px) + 5rem) !important;
     overflow-x: hidden;
     overflow-y: visible;
     box-sizing: border-box;
@@ -117,7 +117,7 @@
     font-size: 1.25rem !important;
   }
 
-  /* --- 2. Top Prestige Header (Fixing absolute positioning and giant height) --- */
+  /* --- 2. Top Prestige Header (Ultra-compact vertical stack, eliminate empty space) --- */
   .c-prestige-info-blocks,
   .c-prestige-info-blocks--tall,
   .c-prestige-info-blocks--taller {
@@ -129,9 +129,9 @@
     height: auto !important;
     min-height: 0 !important;
     width: 100% !important;
-    margin: 0 0 2px 0 !important;
-    padding: 2px 0 !important;
-    gap: 2px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
   }
 
   .l-game-header__center,
@@ -144,30 +144,64 @@
     right: auto !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 1px 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
     padding: 0 !important;
     text-align: center !important;
   }
 
-  .l-game-header__center {
-    order: -1; /* Antimatter always at the very top */
-  }
-
   .c-game-header__antimatter {
-    font-size: 1.7rem !important;
+    font-size: 1.6rem !important;
     font-weight: bold !important;
   }
 
   .c-prestige-button-container {
     width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  .c-eternity-points,
+  .c-infinity-points,
+  .c-reality-currency {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    font-size: 1.15rem !important;
+  }
+
+  .c-reality-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 0 !important;
+    gap: 1px !important;
+    margin: 1px 0 !important;
+    padding: 0 !important;
+  }
+
+  .l-reality-button {
+    max-width: 95vw !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 3.2rem !important;
+    margin: 1px 0 !important;
+    padding: 3px 6px !important;
+    font-size: 1.15rem !important;
   }
 
   .c-prevent-overflow {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding: 2px 4px !important;
+    padding: 1px 4px !important;
     font-size: 1rem !important;
     line-height: 1.2 !important;
   }
@@ -1057,5 +1091,736 @@
     line-height: 1.35 !important;
     margin: 0 auto 0.3rem auto !important;
     padding: 0.4rem 0.2rem !important;
+  }
+
+  /* --- 时间研究树与时间定理商店移动端适配 (Time Studies & TT Shop) --- */
+  .c-game-ui--fixed .l-time-studies-tab__tt-shop {
+    display: none !important;
+  }
+
+  .l-time-studies-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .time-theorem-buttons {
+    position: relative !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto 0.6rem auto !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+    pointer-events: auto !important;
+  }
+
+  .ttshop-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 6px 4px !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+    border: 0.15rem solid var(--color-text) !important;
+    gap: 5px !important;
+  }
+
+  .ttshop-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    gap: 2px !important;
+  }
+
+  .ttshop-header .timetheorems {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .c-tt-amount {
+    font-weight: bold !important;
+  }
+
+  .ttshop-preset-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    width: 100% !important;
+    margin: 2px 0 !important;
+  }
+
+  .l-tree-load-button-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 3px !important;
+  }
+
+  .ttbuttons-buy-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px !important;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .ttbuttons-buy-row .l-tt-buy-button,
+  .ttbuttons-buy-row .l-tt-buy-max-vbox {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ttbuttons-buy-row .o-tt-top-row-button,
+  .ttbuttons-buy-row .c-tt-buy-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 1.15rem !important;
+    padding: 5px 2px !important;
+    text-align: center !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 3.2rem !important;
+  }
+
+  .l-time-study-tree-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: 64vh !important;
+    max-height: 64vh !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-x pan-y !important;
+    margin: 4px auto !important;
+    border: 0.1rem solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-time-study-zoom-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 4px 6px !important;
+    margin: 4px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 现实与符文标签页 (Glyphs Tab & Inventory Mobile Adaptation) --- */
+  .l-glyphs-tab {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-reality-button-column,
+  .l-player-glyphs-column {
+    display: contents !important;
+  }
+
+  /* 现实重置与符文预览处于顶端 */
+  .c-glyph-peek {
+    order: 1 !important;
+    margin: 0.4rem auto !important;
+  }
+
+  .l-reality-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 96vw !important;
+    max-width: 44rem !important;
+    height: auto !important;
+    min-height: 4rem !important;
+    padding: 2px !important;
+    margin: 0.4rem auto !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+    order: 2 !important;
+  }
+
+  .l-reality-button-group .c-reality-upgrade-btn {
+    flex: 1 1 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 3.6rem !important;
+    margin: 0 !important;
+    font-size: 1.15rem !important;
+    padding: 4px 6px !important;
+  }
+
+  .l-celestial-auto-restart-checkbox {
+    order: 3 !important;
+    margin: 0.2rem auto !important;
+    font-size: 1.1rem !important;
+  }
+
+  .c-reality-reminder {
+    order: 4 !important;
+    margin: 0.2rem auto !important;
+  }
+
+  .l-glyph-instability {
+    order: 5 !important;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+    margin: 0.3rem auto !important;
+  }
+
+  .l-single-glyph-customization {
+    order: 6 !important;
+    margin: 0.3rem auto !important;
+  }
+
+  .o-teresa-quotes {
+    order: 7 !important;
+    margin: 0.3rem auto !important;
+  }
+
+  .l-reality-button-column > br {
+    display: none !important;
+  }
+
+  /* 装备符文与效果主容器：处于中间核心位置 */
+  .l-equipped-glyphs-and-effects-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    margin: 0.5rem auto !important;
+    box-sizing: border-box !important;
+    order: 10 !important;
+  }
+
+  .l-equipped-glyphs {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-equipped-glyphs__slots {
+    margin: 0 auto 0.5rem auto !important;
+  }
+
+  /* 装备符文下方的4个功能按钮：整齐排成双列网格 (2x2) */
+  .l-equipped-glyphs__buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px !important;
+    width: 96vw !important;
+    max-width: 44rem !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-equipped-glyphs__buttons button,
+  .l-equipped-glyphs__buttons .c-reality-upgrade-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    font-size: 1.15rem !important;
+    min-height: 3.4rem !important;
+    height: auto !important;
+    padding: 4px 6px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* 符文效果详情面板 */
+  .l-glyph-info-wrapper {
+    width: 96vw !important;
+    max-width: 44rem !important;
+    margin: 0.4rem auto !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+
+  .l-glyph-color-box {
+    display: none !important;
+  }
+
+  .c-glyph-info-options {
+    display: flex !important;
+    width: 100% !important;
+    height: 3rem !important;
+  }
+
+  .c-glyph-info-button {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    font-size: 1.2rem !important;
+    padding: 0 !important;
+  }
+
+  .c-current-glyph-effects,
+  .c-sacrificed-glyphs {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 24rem !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    padding: 0.6rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  /* 符文仓库列表 (Inventory) 紧接在装备下方 */
+  .l-glyph-inventory {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0.8rem auto 0.5rem auto !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    text-align: center !important;
+    order: 15 !important;
+  }
+
+  .l-glyph-inventory__row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 1px 0 !important;
+  }
+
+  .l-glyph-inventory__slot {
+    width: 3.4rem !important;
+    height: 3.4rem !important;
+    max-width: 9.3vw !important;
+    max-height: 9.3vw !important;
+    margin: 1px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 符文侧边栏/预设/筛选面板：位于背包下方提供仓库管理 */
+  .l-glyph-sidebar-option-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 96vw !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0.8rem auto 0.4rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    order: 20 !important;
+  }
+
+  .l-glyph-sidebar-tab-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 3.6rem !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin: 0 0 0.6rem 0 !important;
+  }
+
+  .l-glyph-sidebar-button,
+  .c-glyph-sidebar-button {
+    flex: 1 1 22% !important;
+    min-width: 0 !important;
+    height: 3.4rem !important;
+    font-size: 1.05rem !important;
+    padding: 3px 2px !important;
+    margin: 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-glyph-sacrifice-options,
+  .l-glyph-sidebar-panel-size {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 96vw !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 0.8rem 0.4rem !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+
+  .l-glyph-inventory-management {
+    width: 100% !important;
+    max-width: 96vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-glyph-inventory-management-group {
+    width: 100% !important;
+    max-width: 32rem !important;
+    margin: 0.5rem auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .c-glyph-inventory-option {
+    width: 92% !important;
+    max-width: 24rem !important;
+    min-height: 2.8rem !important;
+    margin: 0.2rem auto 0.4rem auto !important;
+    font-size: 1.1rem !important;
+    padding: 4px 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-glyph-sacrifice-options__header {
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 0.4rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  .l-glyph-level-factors {
+    margin: 1rem auto !important;
+    width: 96vw !important;
+    max-width: 44rem !important;
+    order: 30 !important;
+  }
+
+  /* --- 15. 存储时间标签页 (StoredTimeTab Mobile Adaptation) --- */
+  .l-stored-time-tab {
+    padding-bottom: 5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 注入时间通量按钮排成双列网格 (2x2 + 跨列全宽) */
+  .c-stored-time-flux-btns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    width: 96vw !important;
+    max-width: 44rem !important;
+    margin: 0.5rem auto 1.5rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-stored-time-flux-btns .o-primary-btn {
+    width: 100% !important;
+    min-height: 3.6rem !important;
+    height: auto !important;
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
+    padding: 6px 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .c-stored-time-flux-btns .o-primary-btn:last-child {
+    grid-column: span 2 !important;
+    min-height: 3.8rem !important;
+  }
+
+  /* 时间通量等级加减按钮 */
+  .c-stored-time-level-btns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    width: 96vw !important;
+    max-width: 44rem !important;
+    margin: 0.5rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-stored-time-level-btns .o-primary-btn {
+    width: 100% !important;
+    min-height: 3.4rem !important;
+    height: auto !important;
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
+    padding: 4px 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* --- 16. 修改可见标签页模态框 (HiddenTabsModal Mobile Adaptation) --- */
+  .l-wrapper {
+    width: 94vw !important;
+    max-width: 94vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-hide-modal-tab-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.5rem 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-hide-modal-subtab-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-hide-modal-all-subtab-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 3px !important;
+  }
+
+  .c-hide-modal-tab-button {
+    flex: 1 1 44% !important;
+    width: auto !important;
+    max-width: 48% !important;
+    height: 3.4rem !important;
+    margin: 2px !important;
+    padding: 2px 4px !important;
+    font-size: 1.05rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-hide-modal-button {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .l-hide-modal-button__subtab-icon {
+    font-size: 1.3rem !important;
+    width: 1.8rem !important;
+    margin: 0 2px !important;
+  }
+
+  .l-hide-modal-button__subtab-name {
+    width: auto !important;
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* --- 17. 动画选项模态框 (AnimationOptionsModal Mobile Adaptation) --- */
+  .c-animation-options-modal {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-animation-options-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+    gap: 6px !important;
+    padding: 4px 0 !important;
+  }
+
+  .c-animation-options-container > * {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .c-animation-options-container .o-primary-btn--modal-option {
+    width: 94% !important;
+    max-width: 28rem !important;
+    min-height: 3.6rem !important;
+    height: auto !important;
+    margin: 3px auto !important;
+    font-size: 1.15rem !important;
+    padding: 6px 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-animation-options-container .c-blobflake-slider {
+    width: 94% !important;
+    max-width: 28rem !important;
+    min-height: 4.5rem !important;
+    margin: 3px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 18. 挑战界面双列布局 (Challenges 2-column Grid) --- */
+  .l-challenges-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-challenges-tab__header {
+    max-width: 96vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-challenge-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.6rem 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    padding: 0.5rem 2px !important;
+    margin: 1.4rem auto 1.5rem auto !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  .l-challenge-grid__cell {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-challenge-box,
+  .c-challenge-box--normal,
+  .c-challenge-box--infinity,
+  .c-challenge-box--eternity {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 15.5rem !important;
+    padding: 6px 4px !important;
+    box-sizing: border-box !important;
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .l-challenge-box {
+    margin-top: 0 !important;
+  }
+
+  .o-challenge-btn {
+    width: 96% !important;
+    max-width: 13rem !important;
+    min-height: 2.6rem !important;
+    height: auto !important;
+    font-size: 1rem !important;
+    padding: 2px 4px !important;
+    margin: 4px auto 2px auto !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-hint-text--challenge {
+    font-size: 0.95rem !important;
+    top: -1.7rem !important;
+    left: 4px !important;
+  }
+
+  .l-challenges-tab__auto-ec-info {
+    flex-direction: column !important;
+    align-items: center !important;
+    left: auto !important;
+    white-space: normal !important;
+    font-size: 0.95rem !important;
+    margin: 0.5rem auto !important;
+  }
+
+  /* --- 19. 移动端按钮点击状态修复 (Fix Sticky Hover on Touch) --- */
+  .o-primary-btn:not(.o-primary-btn--disabled):hover:not(:active),
+  .o-primary-btn:not(.o-primary-btn--disabled):focus:not(:active),
+  .l-button-container:not(.o-primary-btn--disabled):hover:not(:active),
+  .l-button-container:not(.o-primary-btn--disabled):focus:not(:active) {
+    color: var(--color-text) !important;
+    background-color: var(--color-base) !important;
+    outline: none !important;
+  }
+
+  .o-primary-btn:not(.o-primary-btn--disabled):active,
+  .l-button-container:not(.o-primary-btn--disabled):active {
+    color: var(--color-text-inverted) !important;
+    background-color: var(--color-good) !important;
+  }
+
+  /* --- 20. 维度列表购买最大按钮隐藏 (Hide Row-level Buy Max in Dimensions) --- */
+  .o-dim-buy-max-btn {
+    display: none !important;
+  }
+
+  .l-infinity-dim-tab .c-subtab-option-container,
+  .l-time-dim-tab .c-subtab-option-container,
+  .l-divine-dim-tab .c-subtab-option-container,
+  .l-celestial-dim-tab .c-subtab-option-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 44rem !important;
+    margin: 4px auto !important;
+    padding: 0 !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-infinity-dim-tab .c-subtab-option-container > *,
+  .l-time-dim-tab .c-subtab-option-container > *,
+  .l-divine-dim-tab .c-subtab-option-container > *,
+  .l-celestial-dim-tab .c-subtab-option-container > * {
+    flex: 1 1 auto !important;
+    min-width: 8rem !important;
+    max-width: 16rem !important;
+    min-height: 3.2rem !important;
+    font-size: 1rem !important;
+    margin: 2px !important;
+    box-sizing: border-box !important;
   }
 }

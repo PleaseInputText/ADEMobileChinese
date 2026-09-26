@@ -14,4 +14,14 @@ if (typeof window !== "undefined") {
       e.preventDefault();
     }
   }, { passive: false });
+
+  window.addEventListener("touchend", e => {
+    if (window.innerWidth <= 768 && e.target && (e.target.tagName === "BUTTON" || e.target.closest("button"))) {
+      setTimeout(() => {
+        if (document.activeElement && typeof document.activeElement.blur === "function") {
+          document.activeElement.blur();
+        }
+      }, 50);
+    }
+  }, { passive: true });
 }
