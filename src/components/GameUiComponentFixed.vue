@@ -2,7 +2,6 @@
 import CelestialQuoteHistoryDisplay from "@/components/modals/celestial-quotes/CelestialQuoteHistoryDisplay";
 import CelestialQuoteModal from "@/components/modals/celestial-quotes/CelestialQuoteModal";
 import CreditsContainer from "@/components/tabs/celestial-pelle/CreditsContainer";
-import EndgameSkillShop from "@/components/tabs/endgame-masteries/es-shop/EndgameSkillShop";
 import FadeAway from "@/components/tabs/celestial-pelle/FadeAway";
 import HowToPlay from "@/components/HowToPlay";
 import ModalProgressBar from "@/components/modals/ModalProgressBar";
@@ -19,7 +18,6 @@ export default {
   name: "GameUiComponentFixed",
   components: {
     HowToPlay,
-    EndgameSkillShop,
     ModernSidebar,
     SaveTimer,
     SpeedrunStatus,
@@ -73,10 +71,6 @@ export default {
       class="l-notification-container"
     />
     <HowToPlay :style="hideIfMatoFullscreen" />
-    <EndgameSkillShop
-      v-if="view.subtab === 'masteries'"
-      class="l-endgame-masteries-tab__es-shop"
-    />
     <ModernSidebar
       v-if="view.newUI && view.theme !== 'S12'"
       :style="hideIfMatoFullscreen"

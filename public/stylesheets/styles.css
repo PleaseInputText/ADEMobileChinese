@@ -683,11 +683,13 @@ button:focus {
 
 .endgame-skill-buttons {
   display: flex;
-  width: 55.5rem;
-  position: absolute;
-  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0.5rem auto;
   z-index: 2;
-  align-items: flex-end;
   font-family: Typewriter, serif;
   color: var(--color-text);
   pointer-events: all;
@@ -848,9 +850,12 @@ button:focus {
 .esshop-container {
   display: flex;
   flex-direction: column;
-  min-width: 60rem;
-  max-width: 80rem;
-  padding: 0 0.5rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--var-border-radius, 6px);
+  gap: 0.5rem;
   transition: all 0.25s ease-out;
 }
 

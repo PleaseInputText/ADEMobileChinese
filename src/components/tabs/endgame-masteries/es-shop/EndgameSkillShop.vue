@@ -96,6 +96,9 @@ export default {
       costs.cp.copyFrom(EndgameSkillPurchaseType.cp.cost);
       costs.dp.copyFrom(EndgameSkillPurchaseType.dp.cost);
     },
+    showPreferredMasteryTreeModal() {
+      Modal.preferredMasteryTree.show();
+    }
   },
 };
 </script>
@@ -103,40 +106,43 @@ export default {
 <template>
   <div class="endgame-skill-buttons">
     <div class="esshop-container esshop-background">
-      <div
-        data-role="page"
-        class="esbuttons-row esbuttons-top-row"
-      >
-        <button
-          class="l-es-save-load-btn c-es-buy-button c-es-buy-button--unlocked"
-          onClick="Modal.preferredMasteryTree.show()"
-        >
-          <i class="fas fa-cog" />
-        </button>
-        <p class="endgameskills">
+      <!-- 1. ES Amount header on TOP -->
+      <div class="esshop-header">
+        <div class="endgameskills">
+          你拥有
           <span class="c-es-amount">
             {{ quantify("终局能力", skillAmount, 2, 0, formatEndgameSkillType) }}
           </span>
-        </p>
-        <div class="l-load-tree-area">
-          <div class="l-tree-load-button-wrapper">
-            <span class="c-esshop__save-load-text">{{ saveLoadText }}</span>
-            <EndgameMasterySaveLoadButton
-              v-for="saveslot in 6"
-              :key="saveslot"
-              :saveslot="saveslot"
-            />
-          </div>
-          <div class="es-gen-container">
-            <span>
-              你拥有 {{ totalEndgameSkillText }}。
-            </span>
-          </div>
+        </div>
+        <div class="es-gen-container">
+          <span>
+            你拥有 {{ totalEndgameSkillText }}。
+          </span>
         </div>
       </div>
+
+      <!-- 2. Controls Row: Preferred Mastery Tree Button + Load Presets 1-6 -->
+      <div class="esshop-preset-row">
+        <button
+          class="l-es-pref-btn c-es-buy-button c-es-buy-button--unlocked"
+          @click="showPreferredMasteryTreeModal"
+        >
+          <i class="fas fa-cog" /> 路径偏好
+        </button>
+        <div class="l-tree-load-button-wrapper">
+          <span class="c-esshop__save-load-text">{{ saveLoadText }}</span>
+          <EndgameMasterySaveLoadButton
+            v-for="saveslot in 6"
+            :key="saveslot"
+            :saveslot="saveslot"
+          />
+        </div>
+      </div>
+
+      <!-- 3. Purchase Buttons -->
       <div
         v-if="!minimized"
-        class="esbuttons-row"
+        class="esbuttons-row esbuttons-buy-row"
         :style="shopBottomRowHeightStyle"
       >
         <EndgameSkillBuyButton
@@ -159,7 +165,6 @@ export default {
         />
         <div class="l-es-buy-max-vbox">
           <button
-            v-if="!minimized"
             class="o-es-top-row-button c-es-buy-button c-es-buy-button--unlocked"
             @click="buyMaxSkills"
           >
@@ -186,18 +191,87 @@ export default {
 </template>
 
 <style scoped>
-.l-load-tree-area {
+.endgame-skill-buttons {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  align-items: left;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0.5rem auto;
+  pointer-events: auto;
+}
+
+.esshop-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--var-border-radius, 6px);
+  border: var(--var-border-width, 0.2rem) solid black;
+  gap: 0.5rem;
+}
+
+.esshop-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.2rem;
+}
+
+.endgameskills {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.c-es-amount {
+  color: var(--color-endgame);
+}
+
+.esshop-preset-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.l-es-pref-btn {
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem;
+  min-height: 2.8rem;
 }
 
 .l-tree-load-button-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.c-esshop__save-load-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.esbuttons-buy-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  width: 100%;
 }
 
 .esbuttons-bottom-row-hide {
@@ -207,8 +281,9 @@ export default {
 .es-gen-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  font-size: 1.1rem;
 }
 
 .checkbox-margin {

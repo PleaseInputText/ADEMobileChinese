@@ -12,3 +12,6 @@ node_modules/
 dist/
 *.bak
 dist_electron/
+
+# ai每次改动
+CHANGELOG_MOBILE.md

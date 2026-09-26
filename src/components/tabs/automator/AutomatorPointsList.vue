@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="c-automator-points-list">
     <div class="l-header">
       你拥有 {{ formatInt(totalPoints) }} / {{ formatInt(pointsForAutomator) }} 自动点数，用于解锁自动机。
       <br>

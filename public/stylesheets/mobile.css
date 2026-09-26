@@ -1228,6 +1228,99 @@
     box-sizing: border-box !important;
   }
 
+  /* --- 终局掌控树与能力商店 (Endgame Masteries Tab & ES Shop Mobile Adaptation) --- */
+  .l-endgame-masteries-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .endgame-skill-buttons {
+    position: relative !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto 0.6rem auto !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+    pointer-events: auto !important;
+  }
+
+  .esshop-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 6px 4px !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+    border: 0.15rem solid var(--color-endgame) !important;
+    gap: 5px !important;
+  }
+
+  .esshop-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    gap: 2px !important;
+  }
+
+  .esshop-header .endgameskills {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .c-es-amount {
+    font-weight: bold !important;
+  }
+
+  .esshop-preset-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    width: 100% !important;
+    margin: 2px 0 !important;
+  }
+
+  .esbuttons-buy-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px !important;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .esbuttons-buy-row .l-es-buy-button,
+  .esbuttons-buy-row .l-es-buy-max-vbox {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .esbuttons-buy-row .o-es-top-row-button,
+  .esbuttons-buy-row .c-es-buy-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 1.15rem !important;
+    padding: 5px 2px !important;
+    text-align: center !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 3.2rem !important;
+  }
+
   /* --- 现实与符文标签页 (Glyphs Tab & Inventory Mobile Adaptation) --- */
   .l-glyphs-tab {
     display: flex !important;
@@ -1822,5 +1915,652 @@
     font-size: 1rem !important;
     margin: 2px !important;
     box-sizing: border-box !important;
+  }
+
+  /* --- 21. 自动机点数来源面板 (Automator Points List Mobile Adaptation) --- */
+  .c-automator-tab,
+  .l-automator-tab {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-x: hidden !important;
+  }
+
+  .c-automator-points-list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-automator-points-list-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 1rem auto !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+    gap: 10px !important;
+  }
+
+  .l-automator-points-list-side-col,
+  .l-automator-points-list-center-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 95% !important;
+    max-width: 95vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+  }
+
+  .c-automator-points-list-col {
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    width: 95% !important;
+    max-width: 95vw !important;
+  }
+
+  .c-automator-points-list-cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 8rem !important;
+    margin: 0 auto 6px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 22. 永恒里程碑双列自适应 (Eternity Milestones 2-column Grid) --- */
+  .l-eternity-milestone-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    padding: 0 2px !important;
+    margin: 4px auto 1rem auto !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  .l-eternity-milestone-grid__row {
+    display: contents !important;
+  }
+
+  .l-eternity-milestone-grid__cell {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-eternity-milestone__reward {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 6.5rem !important;
+    padding: 4px 3px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-eternity-milestone__goal {
+    font-size: 1.15rem !important;
+  }
+
+  /* --- 23. 无名氏天界页面适配 (Enslaved Celestial Tab Mobile Adaptation) --- */
+  .l-enslaved-celestial-tab--inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  .l-enslaved-run-container,
+  .c-enslaved-run-button {
+    width: 95% !important;
+    max-width: 95vw !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-enslaved-top-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .l-enslaved-top-container__half {
+    width: 95% !important;
+    max-width: 95vw !important;
+    margin: 0.5rem auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-enslaved-shop-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 96% !important;
+    max-width: 96vw !important;
+    margin: 1rem auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-enslaved-shop-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 7.5rem !important;
+    margin: 0 !important;
+    padding: 6px 4px !important;
+    font-size: 0.85rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 24. 太阳神天界页面居中适配 (Ra Celestial Tab Center Alignment) --- */
+  .l-ra-all-pets-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-ra-pet-container {
+    float: none !important;
+    width: 96% !important;
+    max-width: 96vw !important;
+    margin: 0 auto 1.2rem auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-ra-pet-milestones {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .l-ra-non-pets {
+    width: 100% !important;
+    max-width: 100vw !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-ra-run-button {
+    width: 92vw !important;
+    max-width: 32rem !important;
+    height: auto !important;
+    min-height: 22rem !important;
+    margin: 0.5rem auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 25. 阿尔法天界页面垂直堆叠 (Alpha Celestial Tab Vertical Stack) --- */
+  .l-alpha-unlocks-and-run {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  .l-alpha-run {
+    order: -1 !important;
+    margin-bottom: 1.2rem !important;
+    width: 95% !important;
+    max-width: 95vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .l-alpha-unlocks {
+    order: 1 !important;
+    width: 95% !important;
+    max-width: 95vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 26. 佩勒毁灭升级网格化 (Pelle Destruction Tab Mobile Grid) --- */
+  .l-pelle-destruction-container,
+  .l-pelle-panel-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-pelle-panel-title {
+    width: 96vw !important;
+    max-width: 96vw !important;
+    font-size: 1.15rem !important;
+    box-sizing: border-box !important;
+    margin: 0.4rem auto !important;
+  }
+
+  .c-pelle-destruction-upgrade-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-pelle-destruction-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 7.5rem !important;
+    margin: 0 !important;
+    padding: 6px 4px !important;
+    font-size: 0.82rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 27. 终局专精树移动端受控视口 (Endgame Masteries Tab Viewport) --- */
+  .l-endgame-mastery-tree-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 64vh !important;
+    max-height: 64vh !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-x pan-y !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    margin: 4px 0 1rem 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+
+  /* --- 28. 终局里程碑双列自适应 (Endgame Milestones 2-column Grid) --- */
+  .l-endgame-milestone-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    padding: 0 2px !important;
+    margin: 4px auto 1rem auto !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  .l-endgame-milestone-grid__row {
+    display: contents !important;
+  }
+
+  .l-endgame-milestone-grid__cell {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-endgame-milestone__reward {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 6.5rem !important;
+    padding: 4px 3px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-endgame-milestone__goal {
+    font-size: 1.15rem !important;
+  }
+
+  /* --- 29. 超立方体单列5行排版 (Hypercubes Tab 1-column 5-row) --- */
+  .l-hypercubes-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  .l-hypercubes-btn {
+    width: 95% !important;
+    max-width: 95vw !important;
+    margin: 0.4rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-hypercubes-btn button {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 8rem !important;
+    padding: 6px 4px !important;
+    box-sizing: border-box !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* --- 30. 天界无限升级双列排版 (Celestial Infinity Upgrades 2-column Grid) --- */
+  .l-celestial-infinity-upgrades-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    margin: 1rem auto !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-celestial-infinity-upgrades-grid__row {
+    display: contents !important;
+  }
+
+  .l-celestial-infinity-upgrades-grid__cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-celestial-infinity-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 7.5rem !important;
+    font-size: 0.82rem !important;
+    padding: 4px 3px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 31. 天界永恒升级双列排版 (Celestial Eternity Upgrades 2-column Grid) --- */
+  .l-celestial-eternity-upgrades-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    margin: 1rem auto !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-celestial-eternity-upgrades-grid__row {
+    display: contents !important;
+  }
+
+  .l-celestial-eternity-upgrades-grid__cell {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .o-celestial-eternity-upgrade {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 7.5rem !important;
+    font-size: 0.82rem !important;
+    padding: 4px 3px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 32. 神性复兴升级双列排版 (Resurgence Upgrades 2-column Grid) --- */
+  .l-resurgence-upgrade-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    margin: 1rem auto !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-resurgence-upgrade-grid__row {
+    display: contents !important;
+  }
+
+  .l-spoon-btn-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-resurgence-upgrade-btn,
+  .c-resurgence-upgrade-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 8rem !important;
+    font-size: 0.82rem !important;
+    padding: 4px 2px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 28. 自动购买器页面移动端适配 (Autobuyers Tab Mobile Adaptation) --- */
+  .l-autobuyers-tab {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    padding: 0 4px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .l-autobuyers-tab .c-subtab-option-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 4px auto !important;
+    padding: 0 4px !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-autobuyers-tab .c-subtab-option-container > * {
+    flex: 1 1 calc(50% - 8px) !important;
+    min-width: 12rem !important;
+    max-width: 100% !important;
+    min-height: 3.2rem !important;
+    font-size: 1.05rem !important;
+    padding: 4px 6px !important;
+    margin: 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-autobuyer-box-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 96% !important;
+    max-width: 96vw !important;
+    min-width: 0 !important;
+    margin: 6px auto !important;
+    padding: 1.6rem 0.6rem 0.8rem 0.6rem !important;
+    box-sizing: border-box !important;
+    gap: 0.4rem !important;
+  }
+
+  .c-autobuyer-box-row__intervalSlot,
+  .c-autobuyer-box-row__toggleSlot,
+  .c-autobuyer-box-row__checkboxSlot,
+  .c-autobuyer-box-row__optionSlot {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 2px 0 !important;
+  }
+
+  .l-autobuyer-box__header {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    margin: 0 0 0.2rem 0 !important;
+  }
+
+  .l-autobuyer-box__footer {
+    position: absolute !important;
+    top: -0.2rem !important;
+    right: 0.8rem !important;
+    width: auto !important;
+  }
+
+  .c-autobuyer-buy-box {
+    display: flex !important;
+    width: 96% !important;
+    max-width: 96vw !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 5.5rem !important;
+    margin: 6px auto !important;
+    padding: 0.8rem 0.6rem !important;
+    box-sizing: border-box !important;
+    font-size: 1.25rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .o-autobuyer-btn {
+    width: 100% !important;
+    max-width: 28rem !important;
+    min-height: 3.2rem !important;
+    height: auto !important;
+    padding: 4px 6px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .o-autobuyer-input {
+    width: 80% !important;
+    max-width: 24rem !important;
+    text-align: center !important;
+    font-size: 1.2rem !important;
+  }
+
+  .l-expanding-control-box {
+    width: 100% !important;
+    max-width: 28rem !important;
+  }
+
+  .c-autobuyer-box__mode-select {
+    width: 100% !important;
+    max-width: 28rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  .o-autobuyer-toggle-checkbox {
+    font-size: 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+  }
+
+  /* 批量维度自动购买器群组 (AD / ID / TD) */
+  .l-autobuyer-box__title {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .l-autobuyer-box__autobuyers {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-autobuyer-box__autobuyers .l-autobuyer-box__autobuyers-internal {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .c-autobuyer-box-slot {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0.5rem 0.2rem !important;
+    box-sizing: border-box !important;
+    font-size: 1.05rem !important;
+    text-align: center !important;
+  }
+
+  /* 独立特殊自动购买器网格 (Singlets: RG, TT, 献祭, 湮灭等) */
+  .l-autobuyer-singlet-group {
+    width: 96% !important;
+    max-width: 96vw !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    margin: 6px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .l-autobuyer-singlet-group .c-autobuyer-box-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0.8rem 0.4rem !important;
+    min-height: 7.5rem !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .c-small-autobuyer-input {
+    width: 80% !important;
+    max-width: 10rem !important;
   }
 }
