@@ -239,43 +239,52 @@ export default {
         <h3>最近 {{ formatInt(10) }} 次{{ plural }}：</h3>
       </span>
     </div>
-    <div v-show="shown">
-      <div class="c-row-container">
-        <span
-          v-for="(entry, col) in infoCol()"
-          :key="col"
-          :style="cellStyle(col, true)"
-        >
-          {{ entry }}
-        </span>
-      </div>
-      <div
-        v-for="(run, index) in runs"
-        :key="index"
-      >
-        <span
-          v-if="run[0].gte(Number.MAX_VALUE)"
-          class="c-empty-row"
-        >
-          <i v-if="index === 10">
-            无可用{{ plural }}时无法计算平均值。
-          </i>
-          <i v-else>
-            尚未完成第 {{ formatInt(index + 1) }} 次{{ index === 0 ? singular : plural }}。
-          </i>
-        </span>
-        <span
-          v-else
-          class="c-row-container"
-        >
+    <div
+      v-show="shown"
+      class="c-past-runs-table-wrapper"
+    >
+      <div class="c-past-runs-table-inner">
+        <div class="c-row-container">
           <span
-            v-for="(entry, col) in infoArray(run, index)"
-            :key="10 * index + col"
-            :style="cellStyle(col, false)"
+            v-for="(entry, col) in infoCol()"
+            :key="col"
+            class="c-past-runs-cell"
+            :class="'c-past-runs-cell--col-' + col"
+            :style="cellStyle(col, true)"
           >
             {{ entry }}
           </span>
-        </span>
+        </div>
+        <div
+          v-for="(run, index) in runs"
+          :key="index"
+        >
+          <span
+            v-if="run[0].gte(Number.MAX_VALUE)"
+            class="c-empty-row"
+          >
+            <i v-if="index === 10">
+              无可用{{ plural }}时无法计算平均值。
+            </i>
+            <i v-else>
+              尚未完成第 {{ formatInt(index + 1) }} 次{{ index === 0 ? singular : plural }}。
+            </i>
+          </span>
+          <span
+            v-else
+            class="c-row-container"
+          >
+            <span
+              v-for="(entry, col) in infoArray(run, index)"
+              :key="10 * index + col"
+              class="c-past-runs-cell"
+              :class="'c-past-runs-cell--col-' + col"
+              :style="cellStyle(col, false)"
+            >
+              {{ entry }}
+            </span>
+          </span>
+        </div>
       </div>
       <br>
     </div>
@@ -283,6 +292,14 @@ export default {
 </template>
 
 <style scoped>
+.c-past-runs-table-wrapper {
+  width: 100%;
+}
+
+.c-past-runs-table-inner {
+  display: inline-flex;
+  flex-direction: column;
+}
 .c-row-container {
   display: flex;
   flex-direction: row;

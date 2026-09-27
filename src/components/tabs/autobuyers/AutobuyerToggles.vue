@@ -79,12 +79,6 @@ export default {
     >
       设置反物质维度自动购买器购买 {{ antimatterAutobuyersBuyMax ? "单个" : "最大" }}
     </PrimaryButton>
-    <PrimaryButton
-      class="o-primary-btn--subtab-option"
-      @click="toggleAntimatterSingles()"
-    >
-      设置反物质维度自动购买器购买 {{ antimatterAutobuyersBuyMax ? "单个" : "最大" }}
-    </PrimaryButton>
     <span v-if="false">
       <PrimaryButton
         v-if="showContinuum"

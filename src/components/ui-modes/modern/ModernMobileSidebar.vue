@@ -135,7 +135,7 @@ export default {
 
 .c-mobile-sidebar__tab {
   flex: 1 0 auto;
-  min-width: 5.6rem;
+  min-width: 6.8rem;
   height: 3.6rem;
   font-size: 1.25rem;
   display: flex;
@@ -144,7 +144,7 @@ export default {
   border-radius: 0;
   border-width: 0 0.1rem 0 0;
   margin: 0;
-  padding: 0 0.6rem;
+  padding: 0 0.8rem;
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;

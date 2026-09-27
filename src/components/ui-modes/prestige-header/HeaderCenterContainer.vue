@@ -60,8 +60,8 @@ export default {
 
 <template>
   <div
-    v-if="shouldDisplay"
     class="c-prestige-button-container"
+    :class="{ 'o-header-center--hidden': !shouldDisplay }"
   >
     <div
       v-if="showEndgame"
@@ -112,5 +112,9 @@ export default {
 }
 .dp-text {
   color: var(--color-pelle--base);
+}
+.o-header-center--hidden {
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 </style>

@@ -213,6 +213,7 @@ body.t-s12 {
 .game-container {
   width: calc(100% - var(--sidebar-width));
   margin-left: var(--sidebar-width);
+  position: relative;
 }
 
 .t-s4 .game-container {
@@ -532,6 +533,7 @@ body.t-s12 {
 .btn-big-crunch--small {
   position: absolute;
   top: 4.3rem;
+  left: 50%;
   font-size: 3rem;
   transform: translateX(-50%);
 }
